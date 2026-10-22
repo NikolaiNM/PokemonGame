@@ -23,12 +23,33 @@
 - `help` — список команд.
 - `exit` — выйти.
 
+## Игровая механика
+- **Прокачка покемона**: каждые 3 победы уровень растёт, атака сбрасывается.
+- **Уровни**: от 1 до 5 (ONE → FIVE).
+- **Атака**: WEAK (1) → MEDIUM (2) → STRONG (3).
+- **Лимит команды**: максимум 5 активных покемонов.
+- **Формула боя**: `уровень × атака × 0.1 × удача(1-100)`. Побеждает тот, у кого сила выше.
+- **Нокаут**: проигравший покемон становится неактивным. Он не участвует в боях и не отображается(но есть в сохранениях).
+
 ## Сохранения
 Файл `savegame.csv` создаётся в папке `saves/` в корне проекта.
 
-## Структура
-- `Game` — точка входа, обработка команд.
-- `Trainer`, `Pokemon` — модели.
-- `Battle` — логика боя.
-- `PokemonSpecies` — enum с видами покемонов.
-- `GameStateStorage` — сохранение/загрузка CSV.
+## Архитектура
+Проект разделён по принципу **разделения ответственности**:
+- **Model** (`com.pokemongame.model`) — сущности и бизнес-логика (Pokemon, Trainer, Enum-ы).
+- **View** (`com.pokemongame.view`) — вывод в консоль (GameView).
+- **Battle** (`com.pokemongame.battle`) — логика боёв.
+- **Storage** (`com.pokemongame.storage`) — сохранение/загрузка CSV.
+- **Game** (`com.pokemongame.game`) — точка входа, обработка команд.
+- **Utils** (`com.pokemongame.utils`) — утилиты (RANDOM, SCANNER).
+
+## Структура проекта
+```
+src/main/java/com/pokemongame/
+├── model/          # Pokemon, Trainer, Enum-ы
+├── battle/         # Battle
+├── view/           # GameView
+├── storage/        # GameStateStorage
+├── game/           # Game
+└── utils/          # GameUtils
+```

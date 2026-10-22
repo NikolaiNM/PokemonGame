@@ -1,4 +1,4 @@
-package com.pokemongame;
+package com.pokemongame.model;
 
 import static com.pokemongame.utils.GameUtils.RANDOM;
 
