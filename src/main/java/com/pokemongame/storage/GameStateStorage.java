@@ -68,7 +68,7 @@ public class GameStateStorage {
 
             String[] trainerData = scanner.nextLine().split(",");
             if (trainerData.length != 3) {
-                System.err.println("DEBAG Неверный формат сохранения тренера");
+                System.err.println("DEBUG Неверный формат сохранения тренера");
                 return null;
             }
 

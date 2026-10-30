@@ -61,7 +61,7 @@ public class Game {
                     break;
 
                 case "exit":
-                        handleExitCommand();
+                    handleExitCommand();
                     break;
 
                 default:
